@@ -127,3 +127,7 @@ prometheus:
     jobLabel: app
 
     resources: {}
+
+ui:
+  annotations: {}
+  labels: {}
