@@ -83,7 +83,7 @@ resources: {}
 ## Custom pod annotations
 podAnnotations:
   cluster-autoscaler.kubernetes.io/safe-to-evict: "true"  # Allow the autoscaler to downscale the cluster.
-  sidecar.istio.io/inject: "false"  # Disable Istio side-car
+  sidecar.istio.io/inject: "false"  # We already experienced some issues with this sidecar
 
 ## Node labels for pod assignment
 ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -100,7 +100,7 @@ affinity: {}
 ## Privilege and access control settings for a Pod or Container
 ## https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 securityContext:
-  runAsUser: 10001
+  runAsUser: 10001 # this value is set following the security team recommendations https://blablacar.atlassian.net/wiki/spaces/SEC/pages/955908228/Sysdig+alerts+runbook+for+service+owners#Create-Pod-Running-As-Root
   runAsGroup: 10001
   fsGroup: 10001
   runAsNonRoot: true
@@ -122,13 +122,18 @@ prometheus:
     imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
     imagePullPolicy: IfNotPresent
     port: 5556
+    resources: {}
   serviceMonitor: # defines monitoring for a service when using prometheus operator
     enabled: true
     jobLabel: app
 
-    resources: {}
-
 ui:
-  replicaCount: 1
   annotations: {}
   labels: {}
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 10m
+      memory: 30Mi
+    limits:
+      memory: 100Mi
