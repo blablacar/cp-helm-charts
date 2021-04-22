@@ -11,7 +11,7 @@ metadata:
   {{- end}}
   name: {{ template "cp-schema-registry.fullname" . }}-ui
 spec:
-  replicas: 2
+  replicas: {{ .Values.ui.replicaCount }}
   selector:
     matchLabels:
       app: {{ template "cp-schema-registry.fullname" . }}

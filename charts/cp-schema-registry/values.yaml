@@ -129,5 +129,6 @@ prometheus:
     resources: {}
 
 ui:
+  replicaCount: 1
   annotations: {}
   labels: {}
