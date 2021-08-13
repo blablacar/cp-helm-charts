@@ -94,7 +94,7 @@ nodeSelector: {}
 tolerations: []
 
 podDisruptionBudget:
-  minAvailable: 1
+  maxUnavailable: 1
 
 ## Privilege and access control settings for a Pod or Container
 ## https://kubernetes.io/docs/tasks/configure-pod-container/security-context/

@@ -164,4 +164,4 @@ spec:
                 labelSelector:
                   matchLabels:
                     app: {{ .Release.Name }}
-                topologyKey: failure-domain.beta.kubernetes.io/zone
+                topologyKey: topology.kubernetes.io/zone
