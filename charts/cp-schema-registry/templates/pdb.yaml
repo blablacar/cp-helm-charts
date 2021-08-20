@@ -6,6 +6,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ template "cp-schema-registry.name" . }}
 {{ toYaml .Values.podDisruptionBudget | indent 2 }}
 {{- end }}
