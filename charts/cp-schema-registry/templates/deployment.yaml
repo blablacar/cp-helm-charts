@@ -156,6 +156,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchLabels:
+                  app: {{ template "cp-schema-registry.name" . }}
                   release: {{ .Release.Name }}
               topologyKey: kubernetes.io/hostname
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -163,5 +164,6 @@ spec:
               podAffinityTerm:
                 labelSelector:
                   matchLabels:
+                    app: {{ template "cp-schema-registry.name" . }}
                     release: {{ .Release.Name }}
                 topologyKey: topology.kubernetes.io/zone
