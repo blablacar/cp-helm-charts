@@ -84,11 +84,11 @@ resources: {}
 podAnnotations:
   cluster-autoscaler.kubernetes.io/safe-to-evict: "true"  # Allow the autoscaler to downscale the cluster.
   sidecar.istio.io/inject: "false"
-  ad.datadoghq.com/cp-schema-registry-server.logs: '[{"source":"schema-registry","service":"{{ .Release.Name }}"}]'
-  ad.datadoghq.com/cp-schema-registry-server.tags: '{}'
-  ad.datadoghq.com/cp-schema-registry-server.check_names: '["openmetrics"]'
-  ad.datadoghq.com/cp-schema-registry-server.init_configs: '[{}]'
-  ad.datadoghq.com/cp-schema-registry-server.instances: |
+  ad.datadoghq.com/{{ .Release.Name }}-server.logs: '[{"source":"schema-registry","service":"{{ .Release.Name }}"}]'
+  ad.datadoghq.com/{{ .Release.Name }}-server.tags: '{}'
+  ad.datadoghq.com/{{ .Release.Name }}-server.check_names: '["openmetrics"]'
+  ad.datadoghq.com/{{ .Release.Name }}-server.init_configs: '[{}]'
+  ad.datadoghq.com/{{ .Release.Name }}-server.instances: |
     [{
     "prometheus_url": "http://%%host%%:5556/metrics",
     "namespace": "schema_registry",
