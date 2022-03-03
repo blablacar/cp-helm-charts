@@ -11,6 +11,9 @@ metadata:
     chart: {{ template "cp-schema-registry.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    {{- if .Values.datadog.enabled }}
+    {{- include "datadog.labels" $ | indent 4 }}
+    {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
