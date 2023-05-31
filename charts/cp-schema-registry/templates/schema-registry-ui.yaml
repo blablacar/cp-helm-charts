@@ -63,8 +63,8 @@ data:
   env.js: |+
     var clusters = [
       {
-        NAME: {{ template "cp-schema-registry.fullname" . | quote }},
-        SCHEMA_REGISTRY: {{ template  "cp-schema-registry.connectUrlValue" . | quote }},
+        NAME: "{{ template "cp-schema-registry.fullname" . }}",
+        SCHEMA_REGISTRY: "{{ template  "cp-schema-registry.connectUrlValue" . }}",
         allowTransitiveCompatibilities: true
       }
     ];
