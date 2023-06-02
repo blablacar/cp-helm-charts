@@ -35,7 +35,7 @@ spec:
         - env:
           - name: SCHEMAREGISTRY_URL
             value: {{ template  "cp-schema-registry.connectUrlValue" . }}
-          image: eu.gcr.io/bbc-registry/schema-registry-ui:ui_0.9.5_caddy_v2.6.4_bbc_5
+          image: eu.gcr.io/bbc-registry/schema-registry-ui:ui_0.9.5_caddy_v2.6.4_bbc_6
           imagePullPolicy: IfNotPresent
           name: ui
           ports:
