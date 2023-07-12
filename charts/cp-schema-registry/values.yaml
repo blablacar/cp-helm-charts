@@ -161,8 +161,7 @@ prometheus:
 
 ui:
   annotations: {}
-  labels:
-    sidecar.istio.io/inject: "false"
+  labels: {}
   replicaCount: 1
   resources:
     requests:
