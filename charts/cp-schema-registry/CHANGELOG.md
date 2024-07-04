@@ -1,5 +1,8 @@
 # Changelog
 
+## cp-schema-registry-v7.3.1-bbc-5
+* Remove deprecated `UseCGroupMemoryLimitForHeap` which has been replaced by `UseContainerSupport` and is on by default
+
 ## cp-schema-registry-v7.3.1-bbc-4
 * use bbc-registry image for kafka-prometheus-jmx-exporter
 
