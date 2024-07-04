@@ -160,7 +160,7 @@ The configuration parameters in this section control the resources requested and
 | --------- | ----------- | ------- |
 | `prometheus.jmx.enabled` | Whether or not to install Prometheus JMX Exporter as a sidecar container and expose JMX metrics to Prometheus. | `true` |
 | `prometheus.jmx.image` | Docker Image for Prometheus JMX Exporter container. | `eu.gcr.io/bbc-registry/kafka-prometheus-jmx-exporter` |
-| `prometheus.jmx.imageTag` | Docker Image Tag for Prometheus JMX Exporter container. | `32d09291efb2b25aee6b5f694506196fed5f1365946af5884ce86a0e2039915e` |
+| `prometheus.jmx.imageTag` | Docker Image Tag for Prometheus JMX Exporter container. | `1.20240704094551.0-sha4ebfc072` |
 | `prometheus.jmx.imagePullPolicy` | Docker Image Pull Policy for Prometheus JMX Exporter container. | `IfNotPresent` |
 | `prometheus.jmx.port` | JMX Exporter Port which exposes metrics in Prometheus format for scraping. | `5556` |
 | `prometheus.jmx.resources` | JMX Exporter resources configuration. | see [values.yaml](values.yaml) for details |
