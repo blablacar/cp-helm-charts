@@ -1,5 +1,11 @@
 # Changelog
 
+## cp-schema-registry-v7.3.1-bbc-4
+* use bbc-registry image for kafka-prometheus-jmx-exporter
+
+## cp-schema-registry-v7.3.1-bbc-3
+* change istio annotations to labels
+
 ## cp-schema-registry-v7.3.1-bbc-2
 
 * chore: Upgraded Caddy server to 2.6.4 for the UI
