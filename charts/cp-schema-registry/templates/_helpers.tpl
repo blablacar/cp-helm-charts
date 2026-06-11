@@ -87,3 +87,26 @@ tags.datadoghq.com/version: {{ .Values.imageTag | quote }}
 {{- end }}
 {{- end }}
 {{- end }}
+
+{{/*
+Scheduling options for pods: input param should be the usual "scheduling" struct
+*/}}
+{{- define "scheduling-options" }}
+{{- if eq .nodepool "datastores" }}
+# NB: no tolerations here, the compute-class handles it for us
+nodeSelector:
+  cloud.google.com/compute-class: "datastores"
+{{- else if eq .nodepool "bursty" }}
+tolerations:
+- key: dedicated
+  operator: Equal
+  value: "bursty"
+  effect: NoSchedule
+nodeSelector:
+  dedicated: "bursty"
+{{- else if eq .nodepool "common" }}
+# No tolerations/nodeSelector for common nodepool
+{{- else }}
+{{- fail (printf "Invalid value for nodepool: '%s', expecting 'bursty', 'common' or 'datastores'." .nodepool) }}
+{{- end }}
+{{- end }}

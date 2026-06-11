@@ -1,5 +1,10 @@
 # Changelog
 
+## cp-schema-registry-v7.3.1-bbc-6
+* Use (GKE) compute-class
+  BREAKING-CHANGE: we're replacing the `tolerations`+`nodeSelector` values by a single `scheduling.nodepool` (enum)
+* Better default values
+
 ## cp-schema-registry-v7.3.1-bbc-5
 * Remove deprecated `UseCGroupMemoryLimitForHeap` which has been replaced by `UseContainerSupport` and is on by default
 
