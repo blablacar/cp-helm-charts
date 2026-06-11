@@ -150,13 +150,9 @@ spec:
         configMap:
           name: {{ template "cp-schema-registry.fullname" . }}-jmx-configmap
       {{- end }}
-      {{- if .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8 }}
-      {{- end }}
-      {{- if .Values.tolerations }}
-      tolerations:
-{{ toYaml .Values.tolerations | indent 8 }}
+      # Tolerations/nodeSelector:
+      {{- with $.Values.scheduling }}
+      {{- include "scheduling-options" . | indent 6 }}
       {{- end }}
       affinity:
         podAntiAffinity:

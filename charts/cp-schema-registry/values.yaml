@@ -113,19 +113,6 @@ datadog:
 podAnnotations:
   cluster-autoscaler.kubernetes.io/safe-to-evict: "true"  # Allow the autoscaler to downscale the cluster.
 
-## Node labels for pod assignment
-## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-nodeSelector:
-  dedicated: "datastores"
-
-## Taints to tolerate on node assignment:
-## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-tolerations:
-  - key: dedicated
-    operator: Equal
-    value: "datastores"
-    effect: NoSchedule
-
 podDisruptionBudget:
   maxUnavailable: 1
 
@@ -169,3 +156,6 @@ ui:
       memory: 30Mi
     limits:
       memory: 100Mi
+
+scheduling:
+  nodepool: datastores   # enum: datastores, common, bursty
