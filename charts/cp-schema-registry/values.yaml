@@ -7,7 +7,7 @@
 ## ------------------------------------------------------
 
 ## Number of Scheme Registry Pod
-replicaCount: 1
+replicaCount: 2
 
 ## Image Info
 ## ref: https://hub.docker.com/r/confluentinc/cp-schema-registry/
@@ -107,7 +107,7 @@ datadog:
       }
       }]
   labels:
-    team: "team_dbre"
+    team: "dbre"
 
 ## Custom pod annotations
 podAnnotations:
@@ -143,12 +143,13 @@ prometheus:
     port: 5556
     resources: {}
   serviceMonitor: # defines monitoring for a service when using prometheus operator
-    enabled: true
+    enabled: false
     jobLabel: app
 
 ui:
   annotations: {}
-  labels: {}
+  labels:
+    team: dbre
   replicaCount: 1
   resources:
     requests:
