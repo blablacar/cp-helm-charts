@@ -107,6 +107,6 @@ nodeSelector:
 {{- else if eq .nodepool "common" }}
 # No tolerations/nodeSelector for common nodepool
 {{- else }}
-{{- fail "Invalid value nodepool" }}
+{{- fail (printf "Invalid value for nodepool: '%s', expecting 'bursty', 'common' or 'datastores'." .nodepool) }}
 {{- end }}
 {{- end }}
